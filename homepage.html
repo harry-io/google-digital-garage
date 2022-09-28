@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Digital Garage(Clone)</title>
+    <style>
+      body {
+        padding: 0px;
+        margin: 0px;
+      }
+      #navbar {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        overflow: hidden;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      #navbar a {
+        float: left;
+        display: block;
+        color: gray;
+        text-align: center;
+        padding: 14px 0px;
+        text-decoration: none;
+        font-family: Arial;
+      }
+      #leftNav {
+        display: flex;
+        align-items: center;
+      }
+      #leftNav > div > img {
+        width: 60%;
+        margin-left: 20px;
+      }
+      #sect-2 {
+        display: flex;
+        gap: 20px;
+        margin-left: -130px;
+      }
+
+      #rightNav {
+        width: 15%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Arial;
+      }
+      #rightNav > button {
+        width: 120px;
+        height: 45px;
+        margin-right: 15px;
+        border: 0px;
+        background-color: #1a73e8;
+        color: white;
+        font-size: 18px;
+      }
+      #more {
+        font-family: "Poppins", sans-serif;
+        border: none;
+        outline: none;
+      }
+      #rightNav > a {
+        color: #1a73e8;
+        font-weight: bold;
+      }
+      #top {
+        width: 88%;
+        margin: auto;
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      #left {
+        width: 35%;
+        padding-top: 40px;
+      }
+      #left > h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: 45px;
+        color: #404447;
+      }
+      #left > p {
+        font-family: "Poppins", sans-serif;
+        line-height: 30px;
+        margin-bottom: 50px;
+        font-size: 18px;
+      }
+      #left > button {
+        width: 180px;
+        height: 45px;
+        border: 0px;
+        background-color: #1a73e8;
+        color: white;
+        font-size: 18px;
+        border-radius: 2px;
+      }
+      #right {
+        width: 65%;
+      }
+      #right > img {
+        width: 100%;
+      }
+      #topMid {
+        width: 90%;
+        margin: auto;
+        margin-top: 130px;
+      }
+      #topMid > div:nth-child(1) {
+        margin-bottom: 20px;
+        padding-top: 20px;
+      }
+      #topMid > div:nth-child(2) {
+        display: flex;
+        gap: 20px;
+        padding-bottom: 40px;
+      }
+      #topMid > div:nth-child(2) > div {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+      }
+      #topMid > div:nth-child(2) > div > img {
+        width: 70px;
+        height: auto;
+      }
+      #container {
+        background-color: #fbfbfc;
+      }
+      #topMid > div > p {
+        font-family: "Poppins", sans-serif;
+      }
+      /*  */
+      #container2 {
+        display: flex;
+        background-color: #1a73e8;
+        padding: 10px 0px;
+      }
+      #inner {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      #inner > div:nth-child(1) {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-family: "Poppins", sans-serif;
+      }
+      #logo {
+        width: 20%;
+        text-align: center;
+        display: flex;
+      }
+      #logo > div {
+        background-color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+
+      #inner > div:nth-child(2) {
+        display: flex;
+        align-items: center;
+      }
+      #inner > div:nth-child(2) > button {
+        width: 250px;
+        height: 45px;
+        border: 0px;
+        background-color: white;
+        color: #1a73e8;
+        font-size: 18px;
+        border-radius: 2px;
+      }
+      #container3 {
+        padding: 60px 0px;
+      }
+      #container3 > div {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+      }
+      #container3 > div > h1 {
+        font-size: 37px;
+      }
+      #container4 {
+        width: 72%;
+        margin: auto;
+        gap: 15px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      #container4 > div {
+        transition: transform 0.3s;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+          rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        padding: 20px;
+        border-radius: 10px;
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      #container4 > div:hover {
+        transform: scale(1.01);
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+      }
+      #container4 > div > div:nth-child(2) {
+        text-align: end;
+        font-size: 20px;
+        color: #1a73e8;
+      }
+      /*  */
+      #container5 {
+        background-color: #fbfbfc;
+        margin: 100px 0px;
+        padding: 80px 0px;
+      }
+      #container5 > div {
+        margin: auto;
+        width: 90%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 100px;
+      }
+      #container5 > div > div:nth-child(1) {
+        width: 25%;
+      }
+      #container5 > div > div:nth-child(1) > img {
+        width: 100%;
+      }
+      #container5 > div > div:nth-child(2) {
+        width: 50%;
+        font-family: "Poppins", sans-serif;
+        font-size: 15px;
+      }
+      #container5 > div > div:nth-child(2) > button {
+        width: 145px;
+        height: 45px;
+        border: 0px;
+        background-color: white;
+        border: 2px solid #1a73e8;
+        color: #1a73e8;
+        font-size: 15px;
+        border-radius: 2px;
+        font-weight: bold;
+        font-family: "Poppins", sans-serif;
+        margin-top: 10px;
+      }
+      #container5 > div > div:nth-child(2) > button:hover {
+        background-color: #1a73e8;
+        color: white;
+      }
+      #container6 > h1 {
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        margin-bottom: 80px;
+        font-size: 40px;
+      }
+      /*  */
+      #innerBox {
+        width: 60%;
+        margin: auto;
+        text-align: center;
+      }
+      .accordion {
+        background-color: rgb(255, 255, 255);
+        color: #404447;
+        font-size: large;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 35px 18px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        border-top: 0.1px solid #404447;
+        border-bottom: 0.1px solid #404447;
+        outline: none;
+        transition: 0.4s;
+        font-family: "Poppins", sans-serif;
+        border-radius: 2px;
+      }
+      .panel {
+        padding: 0 18px;
+        background-color: white;
+        display: none;
+        overflow: hidden;
+      }
+      .accordion:after {
+        font-size: 13px;
+        color: #777;
+        float: right;
+        margin-left: 5px;
+      }
+
+      .active:after {
+        content: "\2796";
+      }
+      #saf {
+        border: 0px;
+        width: 150px;
+        background-color: #f1f3f4;
+        height: 45px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 2px;
+        margin: 100px 0px;
+        font-family: "Poppins", sans-serif;
+      }
+      #saf:hover {
+        background-color: rgba(191, 186, 186, 0.335);
+        color: #1a54a0;
+      }
+      #footer {
+        padding: 20px 0px;
+        position: static;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-bottom: 1px solid gray;
+      }
+      #footer > div {
+        width: 85%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #footer > div > div:nth-child(2) {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      #footer > div > div:nth-child(2) > a {
+        text-decoration: none;
+        font-family: "Poppins", sans-serif;
+        font-size: small;
+      }
+      #footer > div > div:nth-child(2) > select {
+        height: 30px;
+        width: 150px;
+        border: 2px solid black;
+        border-radius: 5px;
+      }
+      #bottom_footer {
+        margin-top: 10px;
+        margin-bottom: 60px;
+        display: flex;
+        flex-direction: row-reverse;
+      }
+      #bottom_footer > div {
+        width: 20%;
+        display: flex;
+        gap: 30px;
+        font-family: "Poppins", sans-serif;
+        font-size: small;
+      }
+      #bottom_footer > div > a {
+        text-align: center;
+        display: flex;
+        align-items: center;
+      }
+      #bottom_footer > div > a > img {
+        width: 25px;
+        height: auto;
+        text-align: center;
+      }
+      /* =====================================================================Media Query */
+      @media all and (min-width: 768px) and (max-width: 1024px) {
+        #container4 {
+          width: 72%;
+          margin: auto;
+          gap: 15px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+        #inner {
+          width: 90%;
+          margin: auto;
+          display: flex;
+          flex-direction: column;
+        }
+        #inner > div:nth-child(2) {
+          width: 86%;
+          margin: auto;
+          display: flex;
+          align-items: center;
+        }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9ee73fa7e8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="navbar">
+      <div id="leftNav">
+        <div>
+          <img
+            src="https://lh3.googleusercontent.com/kvtXWUZ756KishzmjWDgAf0AW77QeBSuLbUXDQidstlS2h63BSRrlgm4bU97NPjdF5skHZFKQufqTqGt1UbTO8VV0OB7SqXAz7qCng=-rw"
+            alt="logo-error"
+          />
+        </div>
+        <div id="sect-2">
+          <a href="">Online Courses</a>
+          <a href="">Certification</a>
+          <a href="">Live Training</a>
+          <a href="">Remote Working</a>
+          <select name="more-section" id="more">
+            <option value="">More</option>
+            <option value="tools_resources">Tools & Resources</option>
+            <option value="help_faqs">Help & FAQs</option>
+            <option value="Feedback">Feedback</option>
+          </select>
+        </div>
+      </div>
+      <div id="rightNav">
+        <a href="">Sign In</a>
+        <button>Register</button>
+      </div>
+    </div>
+    <!--  -->
+    <div id="top">
+      <div id="left">
+        <h1>Learn the skills of the future</h1>
+        <p>
+          Accelerate your career or business with an online digital skills
+          course in everything from marketing to coding and beyond.
+        </p>
+        <button>Find your course</button>
+      </div>
+      <div id="right">
+        <img
+          src="file:///C:/Users/adars/Downloads/img_digital-workshop_hero_xs.webp"
+          alt=""
+        />
+      </div>
+    </div>
+    <!--  -->
+    <div id="container">
+      <div id="topMid">
+        <div>
+          <p>
+            We provide courses along with leading institutions and companies
+          </p>
+        </div>
+        <div>
+          <div>
+            <img
+              src="https://lh3.googleusercontent.com/jJZnt3_ZEgqPLoDXv9OMtmvHQ13ExWDcg4TeOruamOAm1MLaLGmzj1qwz4VBveo0Q_LCph1Idy558gyl5KHp5HDEbTxRdkzD5sGjDOjBhte3eqvw8A=w160"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="https://lh3.googleusercontent.com/Q3wBjzp1-TGEZWpdp-E6PSkc-nMEV66Jaokd4gUjyGh95KMqQyR1I7Gu1eSU7qifjLuiwVJrEmB92HPTa4Hr3e6Mh7JGk7zrQ8YmZ-1HQCWZpKHpzTU=w160"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="https://lh3.googleusercontent.com/MVTsJCD1WJjExvucPvW4GWYHnJ6YLPgQEFijPCVpSyfIM1wAgVvW-AQghsLFZLoWgnBCYbqI3wOveQ1RdOeDf_2Sgo03A7zN8Pwd6NSsu_wBuITKdiE=w160"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="https://lh3.googleusercontent.com/oDBNKrOW0hYPsQgbz7v2BAUCjUoPfuyBBaqUFGg-oify2xKieu2OjW_6C_6smen-YNlOf_CR8M3-VN5pOy_3r4VQ1FPdOUk8mrO58abJNS0RwN9_YYY=w160"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="https://lh3.googleusercontent.com/KZYTEfg4wkORJscNEaj27bVFV83vzRB_6Kd7Fwpqnd5KipwGdqkkulHt9KPWr8oPQnHsh2zyw1tpPyKbB_HfzrG6XTeoy91EONnq9fRj6dV9p4HL_TA=w160"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div id="container2">
+      <div id="inner">
+        <div>
+          <div id="logo">
+            <div>
+              <img
+                src="https://lh3.googleusercontent.com/N9jW0_MdICcLbzV1L-JcfAXr5QaadNKtc8HgH-KPixv3J9XaSnjLkru3dZl0dfNYR12hEsDkQM_WMXtXqe_ohTSx96E7gmFHwzpXPubIJlfV3ybeTxks=-rw"
+                alt="error"
+              />
+            </div>
+          </div>
+          <div>
+            <h1>Did you know we also have webinars?</h1>
+            <p>
+              Online sessions designed to help you develop skills in less than
+              an hour. You can watch webinars live or register to take part in
+              what is coming up.
+            </p>
+          </div>
+        </div>
+        <div><button>Explore our webinars</button></div>
+      </div>
+    </div>
+    <!--  -->
+    <div id="container3">
+      <div>
+        <h1>Do things you never thought possible</h1>
+        <p>
+          Discover courses in topics designed to help expand your career,
+          business and horizons and to upgrade your skills for a new digital
+          world.
+        </p>
+      </div>
+    </div>
+    <!--  -->
+    <div id="container4">
+      <div>
+        <div>
+          <img
+            src="https://lh3.googleusercontent.com/-0GVWZi0ZL7pLYB8XEJRfDrSC2dI6gT8RvubBrpw2BrIxtHkZY--Jn5FxXC4gp0s0fTJa4aV59o1F29qXNv_HBxcwW7zyyiDSMegNwBOEcgS_KU27Fiw=w64"
+            alt="logo-error"
+          />
+          <h3>Digital Marketing</h3>
+          <p>
+            Get certified free of charge in our ‘Fundamentals of digital
+            marketing’ course, or explore other content to help get your
+            business online.
+          </p>
+        </div>
+        <div><i class="fa-sharp fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div>
+        <div>
+          <img
+            src="https://lh3.googleusercontent.com/yUtRjWMWqcVM2Z0MWD3KX1GCkqO585TTOGlDeu3yOLIqv4Zd_Ywa6Fh-YurdcjqfYS0nZrUGBI8V-24saZac4YOri5yuoApFaxJwJZ2IzWEDaWYMfA=w64"
+            alt="logo-error"
+          />
+          <h3>Career development</h3>
+          <p>
+            Gain the skills you need to enhance your career or gain a new job.
+          </p>
+        </div>
+        <div><i class="fa-sharp fa-solid fa-arrow-right"></i></div>
+      </div>
+      <div>
+        <div>
+          <img
+            src="https://lh3.googleusercontent.com/XyURkvWIqHkfiP5yHRbJOHjUYNfEbVfqP_WoHllMs8n0su4vWyB9iwGca_UaqNRfIRLcPw-smh6Ra5XWl3R9Td-PhQcrK6KwsNiF8w8i2bIz0JcHLeP-=w64"
+            alt="logo-error"
+          />
+          <h3>Data</h3>
+          <p>
+            Demand for workers with specialist data skills has more than tripled
+            over the last five years.
+          </p>
+        </div>
+        <div><i class="fa-sharp fa-solid fa-arrow-right"></i></div>
+      </div>
+    </div>
+    <!--  -->
+    <div id="container5">
+      <div>
+        <div>
+          <img
+            src="https://lh3.googleusercontent.com/DxI7wff6hMCJz5NdnBMDjV8KJlLJOhUShC4cg5ZAGUWvS-wWwqzkuM5VKeFNLZQhxR7wW_WL5RY71ShVN1-FVmofpRoXZppnuud5H0JBeLASVYFO2Fi3=w680-rw"
+            alt="logo-error"
+          />
+        </div>
+        <div>
+          <p>
+            Since 2015, we've trained over 700,000 people, to help them find a
+            job, grow their career or business. Across Britain, local
+            businesses, communities and people are using Google tools and
+            training to thrive. Discover how Google is helping the UK economy to
+            grow.
+          </p>
+          <button>Explore now</button>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div id="container6">
+      <h1>FAQs</h1>
+      <div id="innerBox">
+        <div>
+          <button class="accordion">Who is Google Digital Garage for?</button>
+          <div class="panel">
+            <p>
+              Everyone. Gain today's most in-demand skills, whether you're
+              growing your business, starting a career, or just want to try
+              something new. We’ve got a range of courses and over 40 hours of
+              learning available to help take you where you need to go. If
+              you’re keen to come and learn, we’re keen to meet you!
+            </p>
+          </div>
+          <button class="accordion">Who provides the courses?</button>
+          <div class="panel">
+            <p>
+              Some of the courses are provided by us, and others from our
+              partner universities or institutions.
+            </p>
+          </div>
+        </div>
+        <button id="saf">See all FAQs</button>
+      </div>
+    </div>
+    <!--  =========================Footer===================================-->
+    <div id="footer">
+      <div>
+        <div>
+          <img
+            src="https://lh3.googleusercontent.com/7NabP8N3VdnHYt17iVcUvF_Hr2lFg-ayg1YnYIrvtWCtt-RtrnwVUzLZRUT3DSg3IkZHGqEte1v-_E590aB_AC0uCA-xthGO0d1YAA=-rw"
+            alt="error"
+          />
+        </div>
+        <div>
+          <a href="">Privacy & Terms</a>
+          <select name="region" id="region-select">
+            <option value="">Choose region</option>
+            <option value="Africa">Africa</option>
+            <option value="Afrique">Afrique</option>
+            <option value="Australia">Australia</option>
+            <option value="Belgique">Belgique</option>
+            <option value="Belgie">Belgie</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Deutschland">Deutschland</option>
+            <option value="Danmark">Denmark</option>
+            <option value="Eesti">Eesti</option>
+            <option value="Espana">Espana</option>
+            <option value="European">European</option>
+            <option value="France">France</option>
+            <option value="Hrvatska">Hrvatska</option>
+            <option value="Ireland">Ireland</option>
+            <option value="India">India</option>
+            <option value="Italia">Italia</option>
+            <option value="latinoamerica">latinoamerica</option>
+            <option value="Latvija">Latvija</option>
+            <option value="Lietuva">Lietuva</option>
+            <option value="Luxembourg(EN)">Luxembourg(EN)</option>
+            <option value="Luxembourg(FR)">Luxembourg(EN)</option>
+            <option value="Luxemburg(DE)">Luxemburg(DE)</option>
+            <option value="Magyarorszag">Magyarorszag</option>
+            <option value="Malta">Malta</option>
+            <option value="MENA">MENA</option>
+            <option value="Nederland">Nederland</option>
+            <option value="Osterreich">Osterreich</option>
+            <option value="Polska">Polska</option>
+            <option value="Portugal">Portugal</option>
+            <option value="Romania">Romania</option>
+            <option value="Sverige">Sverige</option>
+            <option value="Slovenija">Slovenija</option>
+            <option value="Slovensko">Slovensko</option>
+            <option value="Schweiz">Schweiz</option>
+            <option value="Suomi">Suomi</option>
+            <option value="Suisse">Suisse</option>
+            <option value="Svizerra">Svizerra</option>
+            <option value="Turkce">Turkce</option>
+            <option value="United Kingdom">United Kingdom</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div id="bottom_footer">
+      <div>
+        <p>Share</p>
+        <a href=""
+          ><img
+            src="https://lh3.googleusercontent.com/sw4rOkreSopt2DcXlOCH9HPwHm7pPgeBsO8DFqWnnVPifC4473ztUcLCT49kDnDj5c-ClaRCOQKmBvbrzqICFq7yNgcqq8-byBV0aw=-rw"
+            alt="error"
+        /></a>
+        <a href=""
+          ><img
+            src="https://lh3.googleusercontent.com/O73TcAUC463DfCnA87ap5gw7uWPW2R6owA8p-jcmHYJuysd2BVT_W-1PzUdxk_kbzjQ-OHuTt4W1i3N4hi_KtCkBifUtpZFPlz4R=-rw"
+            alt="error"
+        /></a>
+        <a href=""
+          ><img
+            src="https://lh3.googleusercontent.com/2PFoqNpZ5xu9JK1u_CRR0aiYqGb0K6cOKkzmS2Ux0rucddJgNeMwsniGFMzQWopCdNK9rBzq73N0188sAtK_UFpgUHPPgz2XyDG5=-rw"
+            alt="error"
+        /></a>
+      </div>
+    </div>
+    <!-- ===========================Footer================================ -->
+  </body>
+</html>
+
+<script>
+  let acc = document.getElementsByClassName("accordion");
+  let i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      let panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+</script>
