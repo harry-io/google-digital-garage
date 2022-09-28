@@ -137,51 +137,59 @@
       }
       /*  */
       #container2 {
-        display: flex;
         background-color: #1a73e8;
-        padding: 10px 0px;
+        padding: 20px 0px;
       }
       #inner {
+        /* border: 1px solid cyan; */
         width: 90%;
         margin: auto;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        align-items: center;
       }
       #inner > div:nth-child(1) {
-        width: 60%;
-        display: flex;
-        align-items: center;
-        color: white;
-        font-family: "Poppins", sans-serif;
-      }
-      #logo {
-        width: 20%;
-        text-align: center;
-        display: flex;
-      }
-      #logo > div {
+        /* border: 1px solid red; */
+        /* width: 10%; */
         background-color: white;
         width: 60px;
         height: 60px;
         border-radius: 50%;
+        display: flex;
+        align-items: center;
         justify-content: center;
-        align-items: center;
-        display: flex;
       }
-
       #inner > div:nth-child(2) {
+        width: 90%;
+        /* border: 1px solid red; */
         display: flex;
+        justify-content: space-between;
         align-items: center;
       }
-      #inner > div:nth-child(2) > button {
-        width: 250px;
+      #inner > div:nth-child(2) > div:nth-child(1) {
+        /* border: 1px solid black; */
+        width: 59%;
+        font-family: "Poppins", sans-serif;
+        color: white;
+      }
+      #inner > div:nth-child(2) > div:nth-child(2) {
+        /* border: 1px solid black; */
+        width: 30%;
+        display: flex;
+        justify-content: flex-end;
+      }
+      #inner > div:nth-child(2) > div:nth-child(2) > button {
+        font-family: "Poppins", sans-serif;
+        width: 240px;
         height: 45px;
         border: 0px;
+        font-weight: bold;
         background-color: white;
         color: #1a73e8;
         font-size: 18px;
         border-radius: 2px;
       }
+      /*  */
       #container3 {
         padding: 60px 0px;
       }
@@ -379,24 +387,38 @@
       }
       /* =====================================================================Media Query */
       @media all and (min-width: 768px) and (max-width: 1024px) {
+        #inner > div:nth-child(2) {
+          flex-direction: column;
+        }
+        #inner > div:nth-child(2) > div:nth-child(1) {
+          width: 100%;
+        }
+        #inner > div:nth-child(2) > div:nth-child(2) {
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+        }
         #container4 {
-          width: 72%;
-          margin: auto;
-          gap: 15px;
-          display: grid;
           grid-template-columns: repeat(2, 1fr);
         }
+      }
+      @media all and (min-width: 240px) and (max-width: 767px) {
         #inner {
-          width: 90%;
-          margin: auto;
-          display: flex;
           flex-direction: column;
         }
         #inner > div:nth-child(2) {
-          width: 86%;
-          margin: auto;
+          flex-direction: column;
+        }
+        #inner > div:nth-child(2) > div:nth-child(1) {
+          width: 100%;
+        }
+        #inner > div:nth-child(2) > div:nth-child(2) {
+          width: 100%;
           display: flex;
-          align-items: center;
+          justify-content: center;
+        }
+        #container4 {
+          grid-template-columns: repeat(1, 1fr);
         }
       }
     </style>
@@ -501,14 +523,13 @@
     <div id="container2">
       <div id="inner">
         <div>
-          <div id="logo">
-            <div>
-              <img
-                src="https://lh3.googleusercontent.com/N9jW0_MdICcLbzV1L-JcfAXr5QaadNKtc8HgH-KPixv3J9XaSnjLkru3dZl0dfNYR12hEsDkQM_WMXtXqe_ohTSx96E7gmFHwzpXPubIJlfV3ybeTxks=-rw"
-                alt="error"
-              />
-            </div>
-          </div>
+          <img
+            src="https://lh3.googleusercontent.com/N9jW0_MdICcLbzV1L-JcfAXr5QaadNKtc8HgH-KPixv3J9XaSnjLkru3dZl0dfNYR12hEsDkQM_WMXtXqe_ohTSx96E7gmFHwzpXPubIJlfV3ybeTxks=-rw"
+            alt="error"
+          />
+        </div>
+        <!-- ====== -->
+        <div>
           <div>
             <h1>Did you know we also have webinars?</h1>
             <p>
@@ -517,10 +538,11 @@
               what is coming up.
             </p>
           </div>
+          <div><button>Explore our webinars</button></div>
         </div>
-        <div><button>Explore our webinars</button></div>
       </div>
     </div>
+
     <!--  -->
     <div id="container3">
       <div>
