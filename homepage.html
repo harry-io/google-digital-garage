@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="https://lh3.googleusercontent.com/X6Npx8VfDr60QgT9ICGwEq8whBZqQdRYc3Cu8MdbzG45wS8Ow5W9xcvpJ2BbSxQU7CMEJBv68aXkKsyY7gBywf2v4B-7-HY98vvzPA"
+      type="image/x-icon"
+    />
+    
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,7 +40,6 @@
       #navbar > div:nth-child(2) {
         width: 15%;
         height: 80%;
-
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -122,9 +126,15 @@
         height: 45px;
         border: 0px;
         background-color: #1a73e8;
-        color: white;
         font-size: 18px;
         border-radius: 2px;
+      }
+      #left > button:hover {
+        background-color: #1160c7;
+      }
+      #left > button > a {
+        color: white;
+        text-decoration: none;
       }
       #right {
         width: 66%;
@@ -233,7 +243,7 @@
       #container4 {
         width: 72%;
         margin: auto;
-        gap: 15px;
+        gap: 20px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
       }
@@ -248,10 +258,12 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        z-index: 10;
       }
       #container4 > div:hover {
-        transform: scale(1.01);
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+        transform: scale(1.03);
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+          rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
       }
       #container4 > div > div:nth-child(2) {
         text-align: end;
@@ -693,7 +705,9 @@
           />
         </div>
         <div>
-          <a href="">Online Courses</a>
+          <a href="C:\Users\adars\OneDrive\Desktop\CW\courses.html"
+            >Online Courses</a
+          >
           <a href="">Certification</a>
           <a href="">Live Training</a>
           <a href="">Remote Working</a>
@@ -720,7 +734,11 @@
           Accelerate your career or business with an online digital skills
           course in everything from marketing to coding and beyond.
         </p>
-        <button>Find your course</button>
+        <button>
+          <a href="C:\Users\adars\OneDrive\Desktop\CW\courses.html"
+            >Find your course</a
+          >
+        </button>
       </div>
       <div id="right">
         <svg
