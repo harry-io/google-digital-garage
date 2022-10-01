@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -71,7 +72,7 @@
         /* border: 1px solid red; */
         width: 75%;
         height: auto;
-        display: flex;
+        display: block;
         justify-content: center;
         align-items: center;
         gap: 30px;
@@ -81,6 +82,7 @@
         text-decoration: none;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 14px;
+        margin-right: 20px;
       }
       #navbar > div:nth-child(1) > div:nth-child(2) > select {
         border: 0px solid red;
@@ -97,22 +99,23 @@
         margin: auto;
         margin-top: 60px;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
       }
       #left {
-        width: 35%;
-        padding-top: 40px;
+        width: 33%;
+        padding-top: 20px;
       }
       #left > h1 {
         font-family: "Poppins", sans-serif;
-        font-size: 45px;
+        font-size: 41px;
         color: #404447;
       }
       #left > p {
         font-family: "Poppins", sans-serif;
         line-height: 30px;
-        margin-bottom: 50px;
-        font-size: 18px;
+        margin-bottom: 20px;
+        margin-top: -20px;
+        font-size: 16px;
       }
       #left > button {
         width: 180px;
@@ -124,7 +127,7 @@
         border-radius: 2px;
       }
       #right {
-        width: 65%;
+        width: 66%;
       }
       #right > svg {
         width: 100%;
@@ -133,7 +136,7 @@
       #topMid {
         width: 90%;
         margin: auto;
-        margin-top: 130px;
+        margin-top: 40px;
       }
       #topMid > div:nth-child(1) {
         margin-bottom: 20px;
@@ -155,7 +158,9 @@
       }
       #container {
         background-color: #fbfbfc;
+        width: 100%;
       }
+
       #topMid > div > p {
         font-family: "Poppins", sans-serif;
       }
@@ -165,7 +170,6 @@
         padding: 20px 0px;
       }
       #inner {
-        /* border: 1px solid cyan; */
         width: 90%;
         margin: auto;
         display: flex;
@@ -410,7 +414,86 @@
         text-align: center;
       }
       /* =====================================================================Media Query */
-      @media all and (min-width: 768px) and (max-width: 1024px) {
+      @media all and (min-width: 1440px) {
+        #top {
+          width: 70%;
+          flex-direction: row;
+        }
+        #topMid {
+          width: 70%;
+        }
+        #left {
+          width: 30%;
+          line-height: 60px;
+        }
+        #inner {
+          width: 70%;
+        }
+        #container4 {
+          width: 60%;
+        }
+        #container5 > div {
+          width: 70%;
+        }
+      }
+      @media all and (min-width: 1024px) and (max-width: 1439px) {
+        #top {
+          width: 65%;
+          flex-direction: row;
+        }
+        #left {
+          width: 100%;
+          line-height: 60px;
+        }
+        #right {
+          width: 100%;
+        }
+        #inner > div {
+          width: 95%;
+        }
+        #container4 {
+          width: 70%;
+        }
+        #container5 > div {
+          width: 70%;
+        }
+      }
+      @media all and (min-width: 768px) and (max-width: 1023px) {
+        #navbar > div:nth-child(1) > div:nth-child(2) {
+          display: none;
+        }
+        #navbar > div {
+          display: none;
+        }
+        #navbar > div:nth-child(2) {
+          /* border: 1px solid red; */
+          width: 20%;
+        }
+        #top {
+          width: 70%;
+        }
+        #topMid {
+          width: 70%;
+        }
+        #left {
+          width: 50%;
+          line-height: 30px;
+        }
+        #right {
+          width: 50%;
+        }
+        #left > h1 {
+          font-size: 35px;
+          line-height: 50px;
+        }
+        #left > p {
+          margin-top: 10px;
+          font-size: 15px;
+          line-height: 30px;
+        }
+        #topMid {
+          margin-top: 60px;
+        }
         #inner > div:nth-child(2) {
           flex-direction: column;
         }
@@ -419,30 +502,171 @@
         }
         #inner > div:nth-child(2) > div:nth-child(2) {
           width: 100%;
-          display: flex;
           justify-content: flex-start;
         }
         #container4 {
           grid-template-columns: repeat(2, 1fr);
         }
+
+        #container5 > div {
+          width: 70%;
+          flex-direction: column;
+          gap: 0px;
+        }
+        #container5 {
+          background-color: #fbfbfc;
+          margin: 100px 0px;
+          padding: 80px 0px;
+        }
+        #container5 > div > div:nth-child(1) {
+          width: 30%;
+        }
+        #container5 > div > div:nth-child(2) {
+          width: 100%;
+        }
+        #bottom_footer {
+          padding-right: 40px;
+        }
       }
       @media all and (min-width: 240px) and (max-width: 767px) {
-        #inner {
+        #navbar > div:nth-child(1) > div:nth-child(2) {
+          display: none;
+        }
+        #navbar > div {
+          display: none;
+        }
+        #navbar > div:nth-child(2) {
+          /* border: 1px solid red; */
+          width: 30%;
+        }
+        #top {
+          width: 95%;
+          margin: auto;
           flex-direction: column;
+        }
+        #left {
+          padding-top: 50px;
+          width: 100%;
+          line-height: 30px;
+        }
+
+        #topMid {
+          width: 70%;
+        }
+
+        #right {
+          width: 100%;
+        }
+        #left > h1 {
+          font-size: 35px;
+          line-height: 50px;
+        }
+        #left > p {
+          margin-top: 10px;
+          font-size: 15px;
+          line-height: 30px;
+        }
+        #topMid {
+          width: 80%;
+          margin-top: 60px;
+        }
+        #topMid > div:nth-child(1) {
+          text-align: center;
+          font-size: 13px;
+        }
+        #topMid > div:nth-child(2) {
+          display: flex;
+
+          justify-content: space-between;
+        }
+        #inner {
+          margin-top: 20px;
+          margin-bottom: 20px;
+          flex-direction: column;
+          width: 100%;
+        }
+        #inner > div:nth-child(2) > div:nth-child(1) > h1 {
+          font-size: 22px;
         }
         #inner > div:nth-child(2) {
           flex-direction: column;
+          width: 100%;
         }
         #inner > div:nth-child(2) > div:nth-child(1) {
+          width: 100%;
+          text-align: center;
           width: 100%;
         }
         #inner > div:nth-child(2) > div:nth-child(2) {
           width: 100%;
-          display: flex;
           justify-content: center;
         }
+        #container3 > div {
+          width: 95%;
+        }
+        #container3 > div > h1 {
+          font-size: 22px;
+          color: #404447;
+        }
         #container4 {
+          width: 95%;
           grid-template-columns: repeat(1, 1fr);
+        }
+
+        #container5 > div {
+          width: 95%;
+          flex-direction: column;
+          gap: 0px;
+        }
+        #container5 {
+          background-color: #fbfbfc;
+          margin: 100px 0px;
+          padding: 80px 0px;
+        }
+        #container5 > div > div:nth-child(1) {
+          width: 70%;
+        }
+        #container5 > div > div:nth-child(2) {
+          width: 100%;
+        }
+        #container6 > h1 {
+          font-size: 25px;
+          color: #404447;
+        }
+        #innerBox {
+          width: 100%;
+          font-size: 16px;
+        }
+        #footer {
+          padding: 20px 0px;
+          position: static;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          border-bottom: 1px solid gray;
+        }
+        #footer > div {
+          width: 95%;
+          flex-direction: column;
+        }
+        #footer > div > div:nth-child(1) {
+          width: 50%;
+        }
+        #footer > div > div:nth-child(1) > img {
+          width: 100%;
+        }
+        #footer > div > div:nth-child(2) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        #footer > div > div:nth-child(2) > a {
+          text-decoration: none;
+          font-family: "Poppins", sans-serif;
+          font-size: small;
+        }
+        #bottom_footer {
+          flex-direction: row;
+          width: 100%;
         }
       }
     </style>
@@ -5815,7 +6039,6 @@
             </g>
           </g>
         </svg>
-        <img src="" alt="" />
       </div>
     </div>
     <!--  -->
