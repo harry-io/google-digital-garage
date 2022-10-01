@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="shortcut icon"
+      href="https://lh3.googleusercontent.com/X6Npx8VfDr60QgT9ICGwEq8whBZqQdRYc3Cu8MdbzG45wS8Ow5W9xcvpJ2BbSxQU7CMEJBv68aXkKsyY7gBywf2v4B-7-HY98vvzPA"
+      type="image/x-icon"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses</title>
+    <style>
+      body {
+        padding: 0px;
+        margin: 0px;
+        background-color: #f7f7f7;
+      }
+      #navbar {
+        width: 100%;
+        height: 60px;
+        position: fixed;
+        top: 0;
+        background-color: white;
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* font-family: "Poppins", sans-serif; */
+      }
+      #navbar > div:nth-child(1) {
+        width: 60%;
+        /* border: 1px solid rgb(176, 173, 0); */
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+      }
+      #navbar > div:nth-child(2) {
+        width: 15%;
+        height: 80%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      #navbar > div:nth-child(2) > a:nth-child(1) {
+        text-decoration: none;
+        font-weight: bold;
+        color: #2c7ee9;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #navbar > div:nth-child(2) > a:nth-child(2) {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #2c7ee9;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 60%;
+        height: 100%;
+      }
+      #navbar > div:nth-child(1) > div:nth-child(1) {
+        /* border: 1px solid red; */
+        width: 25%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 40px;
+      }
+      #navbar > div:nth-child(1) > div:nth-child(2) {
+        /* border: 1px solid red; */
+        width: 75%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+      }
+      #navbar > div:nth-child(1) > div:nth-child(2) > a {
+        color: gray;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+      #navbar > div:nth-child(1) > div:nth-child(2) > select {
+        border: 0px solid red;
+        width: 55px;
+        color: gray;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #navbar > div:nth-child(1) > div > img {
+        width: 100%;
+      }
+      #heading {
+        margin-top: 60px;
+        background-color: white;
+        padding-top: 10px;
+        padding-bottom: 40px;
+        padding-left: 80px;
+      }
+      #heading > div {
+        width: 55%;
+        font-family: "Poppins", sans-serif;
+      }
+      #heading > div > h1 {
+        font-size: 40px;
+        color: #3c4043;
+      }
+      #heading > div > p {
+        margin-top: -20px;
+        line-height: 30px;
+        color: grey;
+      }
+      #container {
+        width: 85%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      #box1 {
+        width: 23%;
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        font-family: "Poppins", sans-serif;
+        gap: 40px;
+        color: #3c4043;
+      }
+      #box1 > form {
+        width: 100%;
+        font-family: "Poppins", sans-serif;
+        color: grey;
+      }
+      #box1 > form {
+        line-height: 40px;
+      }
+      #box3 {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+      }
+      #box3_1 {
+        width: 20%;
+        height: 100%;
+      }
+      #box3_2 {
+        width: 71%;
+        height: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        font-family: "Poppins", sans-serif;
+        color: #3c4043;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      #box2 {
+        width: 75%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+      #box2 > div {
+        transition: transform 0.3s;
+        font-family: "Poppins", sans-serif;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        padding: 20px;
+        border-radius: 6px;
+        background-color: white;
+        gap: 15px;
+      }
+      #box2 > div:hover {
+        transform: scale(1.01);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+          rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+          rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+      }
+      #box2 > div > h2 {
+        font-size: 16px;
+        width: 90%;
+        color: #3c4043;
+      }
+      #box2 > div > p {
+        color: grey;
+        font-size: 12px;
+      }
+      #box2 > div > img {
+        width: 100%;
+        border-bottom: 1px solid rgba(201, 201, 201, 0.602);
+        height: auto;
+      }
+
+      .modHourDiv {
+        display: flex;
+        gap: 10px;
+      }
+      .modHourDiv > div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .modHourDiv > div > i {
+        color: #f9af10;
+      }
+      .modHourDiv > div > p {
+        color: grey;
+        font-family: "Poppins", sans-serif;
+        font-size: 12px;
+      }
+      .downDiv {
+        display: flex;
+        flex-direction: row-reverse;
+        font-size: 19px;
+        color: #2c7ee9;
+        margin-top: 40px;
+        margin-bottom: 10px;
+      }
+      #footer {
+        margin-top: 80px;
+        padding: 20px 0px;
+        position: static;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-bottom: 1px solid gray;
+        background-color: white;
+      }
+      #footer > div {
+        width: 85%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #footer > div > div:nth-child(2) {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      #footer > div > div:nth-child(2) > a {
+        text-decoration: none;
+        font-family: "Poppins", sans-serif;
+        font-size: small;
+      }
+      #footer > div > div:nth-child(2) > select {
+        height: 30px;
+        width: 150px;
+        border: 2px solid black;
+        border-radius: 5px;
+      }
+      #bottom_footer {
+        padding-top: 10px;
+        padding-bottom: 60px;
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: white;
+      }
+      #bottom_footer > div {
+        width: 20%;
+        display: flex;
+        gap: 30px;
+        font-family: "Poppins", sans-serif;
+        font-size: small;
+      }
+      #bottom_footer > div > a {
+        text-align: center;
+        display: flex;
+        align-items: center;
+      }
+      #bottom_footer > div > a > img {
+        width: 25px;
+        height: auto;
+        text-align: center;
+      }
+      #box4 {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+      }
+      #box4 > div:nth-child(1) {
+        width: 20%;
+      }
+      #box4 > div:nth-child(2) {
+        width: 78%;
+        text-align: center;
+      }
+      #box4 > div:nth-child(2) > button {
+        width: 140px;
+        height: 50px;
+        border: 0px;
+        background-color: #f1f3f4;
+        font-size: 16px;
+        border-radius: 5px;
+      }
+
+      #box4 > div:nth-child(2) > button:hover {
+        background-color: #e3e4e492;
+        color: #0a53b3;
+      }
+      @media all and (min-width: 1024px) and (max-width: 1440px) {
+        #box2 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        #heading {
+          padding-left: 40px;
+        }
+      }
+      @media all and (min-width: 1024px) and (max-width: 1440px) {
+        #box2 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        #heading {
+          padding-left: 40px;
+        }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9ee73fa7e8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--  -->
+    <div id="navbar">
+      <div>
+        <div>
+          <img
+            src="https://lh3.googleusercontent.com/kvtXWUZ756KishzmjWDgAf0AW77QeBSuLbUXDQidstlS2h63BSRrlgm4bU97NPjdF5skHZFKQufqTqGt1UbTO8VV0OB7SqXAz7qCng=-rw"
+            alt="error"
+          />
+        </div>
+        <div>
+          <a href="">Online Courses</a>
+          <a href="">Certification</a>
+          <a href="">Live Training</a>
+          <a href="">Remote Working</a>
+          <select name="more" id="more">
+            <option value="more">More</option>
+            <option value=" tools & resources">Tools & Resources</option>
+            <option value="help & faqs">Help & FAQs</option>
+            <option value="feedback">Feedback</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <a href="C:\Users\adars\OneDrive\Desktop\CW\sign-in.html">Sign in</a>
+        <a href="C:\Users\adars\OneDrive\Desktop\CW\register.html">Register</a>
+      </div>
+    </div>
+    <!--  -->
+    <div id="heading">
+      <div>
+        <h1>Online courses</h1>
+        <p>
+          Discover a range of free learning content designed to help your
+          business or in your career. You can learn by selecting individual
+          modules, or dive right in and take an entire course end-to-end.
+        </p>
+      </div>
+    </div>
+    <!--  -->
+    <div id="box3">
+      <div id="box3_1"></div>
+      <div id="box3_2">
+        <h3>Results: <span>1</span> courses</h3>
+      </div>
+    </div>
+    <div id="container">
+      <div id="box1">
+        <p><strong>CATEGORIES</strong></p>
+        <form>
+          <label
+            ><input
+              type="checkbox"
+              name="category"
+              value="digitalMarketing"
+              id="digitalMarketing"
+            />
+            Digital Marketing</label
+          ><br />
+          <label
+            ><input
+              type="checkbox"
+              name="category"
+              value="career"
+              id="career"
+            />
+            Carer development</label
+          ><br />
+          <label
+            ><input type="checkbox" name="category" value="data" id="data" />
+            Data</label
+          ><br />
+        </form>
+        <!--  -->
+        <p><strong>COURSE LENGTH</strong></p>
+        <form>
+          <label
+            ><input type="checkbox" name="length" value="two" id="two" /> Under
+            2 hours</label
+          ><br />
+          <label
+            ><input type="checkbox" name="length" value="ten" id="ten" /> 2-10
+            hours</label
+          ><br />
+          <label
+            ><input type="checkbox" name="length" value="length" id="twenty" />
+            11-20 hours</label
+          ><br />
+          <label
+            ><input
+              type="checkbox"
+              name="length"
+              value="twentyPlus"
+              id="twentyPlus"
+            />
+            20+ hours</label
+          ><br />
+        </form>
+        <!--  -->
+        <p><strong>CERTIFICATION</strong></p>
+        <form>
+          <label
+            ><input
+              type="checkbox"
+              name="certification"
+              value="freeCertificate"
+              id="freeCertificate"
+            />
+            Free Certificate</label
+          ><br />
+          <label
+            ><input
+              type="checkbox"
+              name="certification"
+              value="paidCertificate"
+              id="paidCertificate"
+            />
+            Paid certificate</label
+          ><br />
+        </form>
+        <!--  -->
+        <p><strong>COURSE DIFFICULTY</strong></p>
+        <form>
+          <label
+            ><input
+              type="checkbox"
+              name="difficulty"
+              value="beginner"
+              id="beginner"
+            />
+            Beginner</label
+          ><br />
+          <label
+            ><input
+              type="checkbox"
+              name="difficulty"
+              value="intermediate"
+              id="intermediate"
+            />
+            Intermediate</label
+          ><br />
+          <label
+            ><input
+              type="checkbox"
+              name="difficulty"
+              value="advanced"
+              id="advanced"
+            />
+            Advanced</label
+          ><br />
+        </form>
+        <!--  -->
+        <p><strong>COURSE PROVIDER</strong></p>
+        <form>
+          <label
+            ><input
+              type="checkbox"
+              name="provider"
+              value="google"
+              id="google"
+            />
+            Google</label
+          ><br />
+        </form>
+        <!--  -->
+      </div>
+      <!-- ============================== -->
+      <div id="box2"></div>
+    </div>
+    <div id="box4">
+      <div></div>
+      <div><button>Load more</button></div>
+    </div>
+
+    <!--  =========================Footer===================================-->
+    <div id="footer">
+      <div>
+        <div>
+          <img
+            src="https://lh3.googleusercontent.com/7NabP8N3VdnHYt17iVcUvF_Hr2lFg-ayg1YnYIrvtWCtt-RtrnwVUzLZRUT3DSg3IkZHGqEte1v-_E590aB_AC0uCA-xthGO0d1YAA=-rw"
+            alt="error"
+          />
+        </div>
+        <div>
+          <a href="">Privacy & Terms</a>
+          <select name="region" id="region-select">
+            <option value="">Choose region</option>
+            <option value="Africa">Africa</option>
+            <option value="Afrique">Afrique</option>
+            <option value="Australia">Australia</option>
+            <option value="Belgique">Belgique</option>
+            <option value="Belgie">Belgie</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Deutschland">Deutschland</option>
+            <option value="Danmark">Denmark</option>
+            <option value="Eesti">Eesti</option>
+            <option value="Espana">Espana</option>
+            <option value="European">European</option>
+            <option value="France">France</option>
+            <option value="Hrvatska">Hrvatska</option>
+            <option value="Ireland">Ireland</option>
+            <option value="India">India</option>
+            <option value="Italia">Italia</option>
+            <option value="latinoamerica">latinoamerica</option>
+            <option value="Latvija">Latvija</option>
+            <option value="Lietuva">Lietuva</option>
+            <option value="Luxembourg(EN)">Luxembourg(EN)</option>
+            <option value="Luxembourg(FR)">Luxembourg(EN)</option>
+            <option value="Luxemburg(DE)">Luxemburg(DE)</option>
+            <option value="Magyarorszag">Magyarorszag</option>
+            <option value="Malta">Malta</option>
+            <option value="MENA">MENA</option>
+            <option value="Nederland">Nederland</option>
+            <option value="Osterreich">Osterreich</option>
+            <option value="Polska">Polska</option>
+            <option value="Portugal">Portugal</option>
+            <option value="Romania">Romania</option>
+            <option value="Sverige">Sverige</option>
+            <option value="Slovenija">Slovenija</option>
+            <option value="Slovensko">Slovensko</option>
+            <option value="Schweiz">Schweiz</option>
+            <option value="Suomi">Suomi</option>
+            <option value="Suisse">Suisse</option>
+            <option value="Svizerra">Svizerra</option>
+            <option value="Turkce">Turkce</option>
+            <option value="United Kingdom">United Kingdom</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div id="bottom_footer">
+      <div>
+        <p>Share</p>
+        <a href=""
+          ><img
+            src="https://lh3.googleusercontent.com/sw4rOkreSopt2DcXlOCH9HPwHm7pPgeBsO8DFqWnnVPifC4473ztUcLCT49kDnDj5c-ClaRCOQKmBvbrzqICFq7yNgcqq8-byBV0aw=-rw"
+            alt="error"
+        /></a>
+        <a href=""
+          ><img
+            src="https://lh3.googleusercontent.com/O73TcAUC463DfCnA87ap5gw7uWPW2R6owA8p-jcmHYJuysd2BVT_W-1PzUdxk_kbzjQ-OHuTt4W1i3N4hi_KtCkBifUtpZFPlz4R=-rw"
+            alt="error"
+        /></a>
+        <a href=""
+          ><img
+            src="https://lh3.googleusercontent.com/2PFoqNpZ5xu9JK1u_CRR0aiYqGb0K6cOKkzmS2Ux0rucddJgNeMwsniGFMzQWopCdNK9rBzq73N0188sAtK_UFpgUHPPgz2XyDG5=-rw"
+            alt="error"
+        /></a>
+      </div>
+    </div>
+    <div></div>
+    <!-- ===========================Footer================================ -->
+  </body>
+</html>
+<script>
+  let courses = [
+    {
+      img: "https://lh3.googleusercontent.com/21Mlc_bfmIP34V4MgJMtr1S9sGbxNGVdj7ncT_jmiQNAhvqJNYwWhnOdKuY2h57SpOuaOk_aF5dAnrz0w4tbDLVy0wxZHJCUQC3y=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/s40RhwlQAFPM_y7ODSiA5VH6Lhjrltnh-tz295OydaXWGxU8ujKtEEAuM7qsJkrMThodotQEjqCRPJpr724puF4OXkb4vNOysdWW6w=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/jHVvz5HCnhayZkkNznzBmvG1Q1NOIduJe3FK9_TigCL8tQkCn6r1MMiBYVNqSJVIJhaoOSK8vRsdBjQeX9AE1Nfm6cnS8QQclvTR=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/21Mlc_bfmIP34V4MgJMtr1S9sGbxNGVdj7ncT_jmiQNAhvqJNYwWhnOdKuY2h57SpOuaOk_aF5dAnrz0w4tbDLVy0wxZHJCUQC3y=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/21Mlc_bfmIP34V4MgJMtr1S9sGbxNGVdj7ncT_jmiQNAhvqJNYwWhnOdKuY2h57SpOuaOk_aF5dAnrz0w4tbDLVy0wxZHJCUQC3y=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/21Mlc_bfmIP34V4MgJMtr1S9sGbxNGVdj7ncT_jmiQNAhvqJNYwWhnOdKuY2h57SpOuaOk_aF5dAnrz0w4tbDLVy0wxZHJCUQC3y=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/21Mlc_bfmIP34V4MgJMtr1S9sGbxNGVdj7ncT_jmiQNAhvqJNYwWhnOdKuY2h57SpOuaOk_aF5dAnrz0w4tbDLVy0wxZHJCUQC3y=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/21Mlc_bfmIP34V4MgJMtr1S9sGbxNGVdj7ncT_jmiQNAhvqJNYwWhnOdKuY2h57SpOuaOk_aF5dAnrz0w4tbDLVy0wxZHJCUQC3y=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/21Mlc_bfmIP34V4MgJMtr1S9sGbxNGVdj7ncT_jmiQNAhvqJNYwWhnOdKuY2h57SpOuaOk_aF5dAnrz0w4tbDLVy0wxZHJCUQC3y=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/21Mlc_bfmIP34V4MgJMtr1S9sGbxNGVdj7ncT_jmiQNAhvqJNYwWhnOdKuY2h57SpOuaOk_aF5dAnrz0w4tbDLVy0wxZHJCUQC3y=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/21Mlc_bfmIP34V4MgJMtr1S9sGbxNGVdj7ncT_jmiQNAhvqJNYwWhnOdKuY2h57SpOuaOk_aF5dAnrz0w4tbDLVy0wxZHJCUQC3y=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/21Mlc_bfmIP34V4MgJMtr1S9sGbxNGVdj7ncT_jmiQNAhvqJNYwWhnOdKuY2h57SpOuaOk_aF5dAnrz0w4tbDLVy0wxZHJCUQC3y=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/21Mlc_bfmIP34V4MgJMtr1S9sGbxNGVdj7ncT_jmiQNAhvqJNYwWhnOdKuY2h57SpOuaOk_aF5dAnrz0w4tbDLVy0wxZHJCUQC3y=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+    {
+      img: "https://lh3.googleusercontent.com/21Mlc_bfmIP34V4MgJMtr1S9sGbxNGVdj7ncT_jmiQNAhvqJNYwWhnOdKuY2h57SpOuaOk_aF5dAnrz0w4tbDLVy0wxZHJCUQC3y=s299",
+      heading: "Fundamentals of digital marketing",
+      provider: "created by google",
+      modules: 26,
+      hours: 40,
+    },
+  ];
+  ////////////////////////////////////////////////////////
+  courses.forEach(function (el) {
+    let box2 = document.querySelector("#box2");
+    let card = document.createElement("div");
+    //
+    let img = document.createElement("img");
+    img.src = el.img;
+    //
+    let title = document.createElement("h2");
+    title.innerText = el.heading;
+    //
+    let provider = document.createElement("p");
+    provider.innerText = el.provider;
+    /////////==========================================================
+    let div = document.createElement("div");
+    div.className = "modHourDiv";
+    let div1 = document.createElement("div");
+    let bar = document.createElement("i");
+    bar.className = "fa-solid fa-bars";
+    //
+    let div2 = document.createElement("div");
+    let bar2 = document.createElement("i");
+    bar2.className = "fa-regular fa-clock";
+    let mod = document.createElement("p");
+    mod.innerText = "Modules: " + el.modules;
+    div1.append(bar, mod);
+    let mod2 = document.createElement("p");
+    mod2.innerText = "Hours: " + el.hours;
+    div2.append(bar2, mod2);
+    div.append(div1, div2);
+    //////////////////////////////////////////=========================
+    let downDiv = document.createElement("div");
+    downDiv.className = "downDiv";
+    let arrow = document.createElement("i");
+    arrow.className = "fa-sharp fa-solid fa-arrow-right";
+    downDiv.append(arrow);
+    //==================================================================
+    card.append(img, title, provider, div, downDiv);
+    box2.append(card);
+  });
+
+  let res = document.querySelector("#box3_2>h3>span");
+  res.innerText = courses.length;
+</script>
